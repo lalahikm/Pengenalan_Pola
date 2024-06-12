@@ -16,44 +16,14 @@ Characterization is performed using the convolution layers of the CNN model. Eac
 **Recognition model selection**
 
 The selected recognition model is a Convolutional Neural Network (CNN), which consists of multiple convolution and pooling layers, followed by a fully connected layer. The model architecture includes multiple convolution layers with ReLU activation, a pooling layer, a normalization layer, and a dense layer to produce the classification output.
-as the following program code:
-
-model = tf.keras.Sequential([
-    layers.Conv2D(16, 3, padding='same', activation='relu'),
-    layers.MaxPooling2D(),
-    layers.Rescaling(1./255, input_shape=(img_height, img_width, 3)),
-    layers.Conv2D(32, 3, padding='same', activation='relu'),
-    layers.MaxPooling2D(),
-    layers.Conv2D(64, 3, padding='same', activation='relu'),  # Layer Conv2D baru
-    layers.MaxPooling2D(),  # Layer MaxPooling2D baru
-    layers.Flatten(),  # Layer Flatten
-    layers.Dense(128, activation='relu'),  # Layer Dense dengan 128 neuron dan aktivasi relu
-    layers.Dense(num_classes)  # Layer Dense output dengan jumlah neuron sesuai dengan num_classes
-])
 
 **Training**
 
 The CNN model is trained using the collected nitik batik image dataset. The dataset is divided into a training set and a validation set with a ratio of 80:20. The model is trained with Adam's optimization and uses the Sparse Categorical Crossentropy loss function. Training is done for 200 epochs to ensure the model can converge well.
-The following is the program code:
-
-model.compile(optimizer='adam',
-              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-              metrics=['accuracy'])
-
-epochs = 200
-history = model.fit(train_ds,
-                    validation_data=val_ds,
-                    epochs=epochs)
 
 **Evaluation**
 
 Model evaluation is performed using validation sets and performance metrics such as accuracy, as well as confusion matrix visualization to measure the model's classification performance against each category of nitik batik patterns. The confusion matrix provides an overview of the correct and incorrect predictions for each class, allowing further analysis of classification errors.
-The following is the program code:
-
-cm = confusion_matrix(true_labels, predictions, labels=class_names)
-disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=class_names)
-disp.plot()
-plt.show()
 
 **Results**
 
