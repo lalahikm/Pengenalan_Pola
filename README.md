@@ -4,6 +4,8 @@
 
 The data used in this program comes from the “Batik Nitik 960” dataset, which was published in a journal by Agus Eko M. et al. with the title “Batik Nitik 960 Dataset for Classification, Retrieval, and Generator” in 2023. This dataset consists of 960 images covering 60 categories of Nitik batik. However, for the implementation of this program, only 5 categories are used, namely “sekar_kemuning”, “sekar_liring”, “sekar_duren”, “sekar_gayam”, and “sekar_pacar”. Each category consists of 15 images for training, a total of 75 images, and 1 image per category for testing, a total of 5 images.
 
+Dataset: https://drive.google.com/drive/folders/1lcl01SqBYXCMcujseNtZ0YfR1L4XdVf-?usp=sharing
+
 **Feature determination**
 
 The features used to classify nitik batik pattern images are extracted from the image itself. In the context of Convolutional Neural Networks (CNN), these features are the patterns of pixels in the image identified through the convolution layer. CNNs automatically learn to determine important features during the training process, such as edges, texture, and shape.
